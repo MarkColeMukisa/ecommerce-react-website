@@ -1,28 +1,27 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Home from './pages/Home';
-import Auth from './pages/Auth';
-import Checkout from './pages/Checkout';
-import Nav from './components/Nav';
-import AuthProvider from './context/AuthContext';
-
+import Home from "./pages/Home";
+import Auth from "./pages/Auth";
+import Checkout from "./pages/Checkout";
+import Nav from "./components/Nav";
+import AuthProvider from "./context/AuthContext";
+import ProductDetails from "./pages/ProductDetails";
 
 const App = () => {
   return (
     <AuthProvider>
-    <div className='app'>
-      
-      <Nav />
-      
-        <Routes>
-          <Route path='/' element={<Home />}/>
-          <Route path='/auth' element={<Auth />}/>
-          <Route path='/checkout' element={<Checkout />}/>
-        </Routes>
-    </div>
-    </AuthProvider>
-  )
-}
+      <div className="app">
+        <Nav />
 
-export default App
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
+        </Routes>
+      </div>
+    </AuthProvider>
+  );
+};
+
+export default App;
