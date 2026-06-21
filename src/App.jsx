@@ -5,12 +5,14 @@ import Home from './pages/Home';
 import Auth from './pages/Auth';
 import Checkout from './pages/Checkout';
 import Nav from './components/Nav';
+import AuthProvider from './context/AuthContext';
 
 
 const App = () => {
   return (
+    <AuthProvider>
     <div className='app'>
-
+      
       <Nav />
       
         <Routes>
@@ -19,6 +21,7 @@ const App = () => {
           <Route path='/checkout' element={<Checkout />}/>
         </Routes>
     </div>
+    </AuthProvider>
   )
 }
 
