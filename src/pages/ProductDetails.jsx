@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import AddToCartButton from "../components/AddToCartButton";
 import { getProductById } from "../data/products";
 
 const ProductDetails = () => {
@@ -24,12 +25,12 @@ const ProductDetails = () => {
           <div className="product-detail-image">
             <img src={product.image} alt={product.name} />
           </div>
-            <div className="product-detail-content">
-                <h1 className="product-detail-name">{product.name}</h1>
-                <p className="product-detail-price">UGX {product.price}</p>
-                <p className="product-detail-description">{product.description}</p>
-                <button className="btn btn-primary">Add to Cart</button>
-            </div>
+          <div className="product-detail-content">
+            <h1 className="product-detail-name">{product.name}</h1>
+            <p className="product-detail-price">UGX {product.price}</p>
+            <p className="product-detail-description">{product.description}</p>
+            <AddToCartButton productId={product.id} />
+          </div>
         </div>
       </div>
     </div>

@@ -1,8 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../context/auth-context";
 
 const Nav = () => {
   const { user, logout } = useAuth();
+
+  const getNavLinkClassName = ({ isActive }) =>
+    isActive ? "navbar-link navbar-link-active" : "navbar-link";
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -10,8 +14,12 @@ const Nav = () => {
           ShopHub.
         </Link>
         <div className="navbar-links">
-          <Link to="/">Home</Link>
-          <Link to="/checkout">Cart</Link>
+          <NavLink to="/" end className={getNavLinkClassName}>
+            Home
+          </NavLink>
+          <NavLink to="/checkout" className={getNavLinkClassName}>
+            Cart
+          </NavLink>
         </div>
 
         <div className="navbar-auth">

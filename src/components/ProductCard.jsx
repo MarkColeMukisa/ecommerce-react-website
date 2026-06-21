@@ -1,5 +1,6 @@
 import { getProducts } from "../data/products";
 import { Link } from "react-router-dom";
+import AddToCartButton from "./AddToCartButton";
 
 const ProductCard = () => {
   const products = getProducts();
@@ -26,7 +27,7 @@ const ProductCard = () => {
                 >
                   View Details
                 </Link>
-                <button className="btn btn-primary">Add to Cart</button>
+                <AddToCartButton productId={product.id} />
               </div>
             </div>
           </div>

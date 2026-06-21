@@ -6,10 +6,12 @@ import Checkout from "./pages/Checkout";
 import Nav from "./components/Nav";
 import AuthProvider from "./context/AuthContext";
 import ProductDetails from "./pages/ProductDetails";
+import CartProvider from "./context/CartContext";
 
 const App = () => {
   return (
     <AuthProvider>
+      <CartProvider>
       <div className="app">
         <Nav />
 
@@ -20,6 +22,7 @@ const App = () => {
           <Route path="/products/:id" element={<ProductDetails />} />
         </Routes>
       </div>
+      </CartProvider>
     </AuthProvider>
   );
 };
